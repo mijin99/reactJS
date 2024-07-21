@@ -11,28 +11,17 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const root = document.getElementById("root");
-    /* const h3 = React.createElement("h3",
-        {
-            id : "title",
-           onMouseEnter: () => console.log("mouse enter"),
-        },"Hello I'm a span"); //element이름은 html과 가탕야함 */
-        //JSX (JAVASCRIPT 의 확장)
-    const Title = <h3 id="title"
-        onMouseEnter={() => console.log("mouse enter")}>
-        "Hello I'm a span"</h3>
-
-    /*  const btn = React.createElement("button",
-         {
-             onClick: () => console.log("im clicked"),
-             style : {backgroundColor :"tomato"},
-         },
-         "Click me"); */
-    const Button = <button style={{ backgroundColor: "tomato", }}
+    function Title() {
+        return (<h3 id="title"
+            onMouseEnter={() => console.log("mouse enter")}>
+            "Hello I'm a span"</h3>);
+    };
+    const Button = () => (<button style={{ backgroundColor: "tomato", }}
         onClick={() => console.log("im clicked")}>
-        "Click me"</button>
+        "Click me"</button>);
 
-    const container = React.createElement("div", null, [Title, Button]); //두개를 동시에 담기위한 div
-    ReactDOM.render(container, root); //html로 가져가서 보여준다
+    const Container = ()=>(<div><Title /> <Button /></div>); //두개를 동시에 담기위한 div
+    ReactDOM.render(<Container/>, root); //html로 가져가서 보여준다
 
 </script>
 
