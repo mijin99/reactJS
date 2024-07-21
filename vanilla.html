@@ -1,13 +1,21 @@
+<!--ReactJS로 html구성 ,개발자 방식 아님 -->
 <!DOCTYPE html>
 <html lang="en">
-    <body>
-        <span>Total clicks: 0</span>
-        <button id ="btn">Click me</button>
-    </body>
-    <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
-    <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
-    <script>
 
-    </script>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script>
+    const root = document.getElementById("root");
+    const span = React.createElement(
+        "span",
+        { id: "sexy-span" , style :{color:"red"}},
+        "Hello I'm a span"
+    ); //element이름은 html과 가탕야함
+    ReactDOM.render(span, root); //html로 가져가서 보여준다
+
+</script>
 
 </html>
