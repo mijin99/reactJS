@@ -1,0 +1,28 @@
+<!--ReactJS로 html구성 ,개발자 방식 아님 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script>
+    const root = document.getElementById("root");
+    const h3 = React.createElement("h3",
+        {
+            id : "title",
+           onMouseEnter: () => console.log("mouse enter"),
+        },"Hello I'm a span"); //element이름은 html과 가탕야함
+    const btn = React.createElement("button",
+        {
+            onClick: () => console.log("im clicked"),
+            style : {backgroundColor :"tomato"},
+        },
+        "Click me");
+    const container = React.createElement("div",null,[h3,btn]); //두개를 동시에 담기위한 div
+    ReactDOM.render(container, root); //html로 가져가서 보여준다
+
+</script>
+
+</html>
