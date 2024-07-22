@@ -13,18 +13,19 @@
     const root = document.getElementById("root");
    
     function App (){
-        // array2 (data, function) const 상수 let ?
-        const [counter, setCounter] =React.useState(0);
-        const onClick = () =>{
-            //setCounter(counter+1);
-            //아래가 더 확실히 현재값이라는 것을 보장해줄 수 있음
-            setCounter((current)=>current+1);
-        }
-        
+        const [minutes,setMinues] =React.useState();
+        const onChange = (event) =>{
+           // console.log(event.target.value);
+           setMinues(event.target.value);
+        };
         return(
         <div>
-            <h3>"Total clicks: {counter}"</h3>
-            <button onClick={onClick} >"Click me"</button>
+            <h1 calssName ="hi">Super Converter</h1>
+            <label htmlfor="minutes">Minutes</label>
+            <input value={minutes} onChange={onChange}id="minutes" placeholder ="Minutes" type="number"/>  
+            <h4>You want to convert {minutes}</h4>
+            <label htmlfor="hours">Hours</label>
+            <input id="hours"placeholder ="Hours" type="number"/>  
         </div>
      );
     }
