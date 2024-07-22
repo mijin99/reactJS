@@ -1,0 +1,33 @@
+<!--ReactJS로 html구성 ,개발자 방식 아님 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>
+</body>
+<!--react js, react Dom import-->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+    const root = document.getElementById("root");
+    let counter = 0;
+    function countUp(){
+        counter = counter+1;
+        reRender();
+    }
+    function reRender(){
+        ReactDOM.render(<Container/>, root); //리렌더링
+    }
+    const Container = ()=>(
+        <div>
+            <h3>"Total clicks: {counter}"</h3>
+            <button onClick={countUp}>"Click me"</button>
+        </div>
+    ); //두개를 동시에 담기위한 div
+
+    reRender(); //html로 가져가서 보여준다
+
+</script>
+
+</html>
