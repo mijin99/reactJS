@@ -1,0 +1,48 @@
+<!--ReactJS로 html구성 ,개발자 방식 아님 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div id="root"></div>
+</body>
+<!--react js, react Dom import-->
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
+<script type="text/babel">
+    function Btn({ text, changeValue ,fontSize=16 }) {
+        console.log(text,"was renderd")
+        return (
+            <button 
+                onClick={changeValue}
+                style={{
+                backgroundColor: "tomato",
+                color: "white",
+                padding: "10px 20px",
+                border: 0,
+                borderRadius: 10,
+                fontSize,
+
+            }}>{text}</button>
+        );
+    }
+    Btn.propTypes ={
+        text : PropTypes.string.isRequired,
+        fontSize:PropTypes.number,
+    }
+    function App() {
+        const [value, setValue] = React.useState("Save Changes")
+        const changeValue = () => setValue("Revert Changes");
+        return (
+            <div>
+                <Btn text={value} changeValue={changeValue} fontSize={18}/>
+                <Btn text="Continue" />
+            </div>
+        );
+    }
+    ReactDOM.render(<App />, root); //html로 가져가서 보여준다
+
+</script>
+
+</html>
